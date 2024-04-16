@@ -311,7 +311,7 @@ class _UserNamePageState extends State<UserNamePage> {
 
       if (myPersonalId.isNotEmpty) {
         await sharePrefs.setString("myPersonalId", myPersonalId);
-        Get.offAll(GetMyPersonalInfo(myPersonalId: myPersonalId));
+        Get.offAll(() => GetMyPersonalInfo(myPersonalId: myPersonalId));
       } else {
         ToastShow.toast(StringsManager.somethingWrong.tr);
       }

@@ -221,7 +221,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         await authCubit.signOut(userId: myPersonalId);
 
         await sharePrefs.clear();
-        Get.offAll(const LoginPage(),
+        Get.offAll(() => const LoginPage(),
             duration: const Duration(milliseconds: 0));
       });
     }

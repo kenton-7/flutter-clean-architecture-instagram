@@ -6,7 +6,7 @@ import 'package:agora_rtc_engine/rtc_remote_view.dart' as rtc_remote_view;
 import 'package:instagram/core/resources/color_manager.dart';
 import 'package:instagram/core/resources/styles_manager.dart';
 import 'package:instagram/core/utility/constant.dart';
-import 'package:instagram/core/utility/private_keys.dart';
+//wgc import 'package:instagram/core/utility/private_keys.dart';
 import 'package:instagram/data/models/parent_classes/without_sub_classes/user_personal_info.dart';
 import 'package:instagram/presentation/cubit/callingRooms/calling_rooms_cubit.dart';
 import 'package:instagram/presentation/cubit/firestoreUserInfoCubit/user_info_cubit.dart';
@@ -14,6 +14,8 @@ import 'package:instagram/presentation/widgets/global/circle_avatar_image/circle
 import 'package:permission_handler/permission_handler.dart';
 
 enum UserCallingType { sender, receiver }
+
+const agoraAppId = "79864ea022524752a27252f8b82b4389";
 
 class CallPage extends StatefulWidget {
   final String channelName;

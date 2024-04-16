@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
     myPersonalId = userId;
     if (myPersonalId.isNotEmpty) {
       await sharePrefs.setString("myPersonalId", myPersonalId);
-      Get.offAll(GetMyPersonalInfo(myPersonalId: myPersonalId));
+      Get.offAll(() => GetMyPersonalInfo(myPersonalId: myPersonalId));
     } else {
       ToastShow.toast(StringsManager.somethingWrong.tr);
     }

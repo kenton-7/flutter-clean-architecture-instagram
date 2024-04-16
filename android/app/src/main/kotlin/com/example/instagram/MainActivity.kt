@@ -1,4 +1,4 @@
-package com.example.instagram
+package com.freshtime.freshpoi
 
 import io.flutter.embedding.android.FlutterActivity
 

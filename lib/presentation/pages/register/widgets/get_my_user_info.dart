@@ -33,7 +33,7 @@ class _GetMyPersonalInfoState extends State<GetMyPersonalInfo> {
           if (userState is CubitMyPersonalInfoLoaded) {
             myPersonalId = widget.myPersonalId;
             Get.offAll(
-              ResponsiveLayout(
+              () => ResponsiveLayout(
                 mobileScreenLayout: PopupCalling(myPersonalId),
                 webScreenLayout: const WebScreenLayout(),
               ),

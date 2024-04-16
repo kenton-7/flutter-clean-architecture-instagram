@@ -6,7 +6,9 @@ import 'package:http/http.dart' as http;
 
 import 'package:instagram/data/models/child_classes/notification.dart';
 import 'package:instagram/data/models/parent_classes/without_sub_classes/push_notification.dart';
-import 'package:instagram/core/utility/private_keys.dart';
+//wgc import 'package:instagram/core/utility/private_keys.dart';
+
+const notificationKey = "8tQOAIDjm53DWgbzUSFIughEVx8_cYvyhapV7bsBXxE";
 
 class DeviceNotification {
   static Future<void> pushNotification(
