@@ -24,11 +24,9 @@ class VideoCallPage extends StatelessWidget {
       // backgroundColor: ColorManager.lowOpacityGrey,
       body: SafeArea(
         child: BlocBuilder<CallingRoomsCubit, CallingRoomsState>(
-          buildWhen: (previous, current) =>
-              previous != current && current is CallingRoomsLoaded,
+          buildWhen: (previous, current) => previous != current && current is CallingRoomsLoaded,
           bloc: CallingRoomsCubit.get(context)
-            ..createCallingRoom(
-                myPersonalInfo: myPersonalInfo, callThoseUsersInfo: usersInfo),
+            ..createCallingRoom(myPersonalInfo: myPersonalInfo, callThoseUsersInfo: usersInfo),
           builder: (callingRoomContext, callingRoomState) {
             if (callingRoomState is CallingRoomsLoaded) {
               return callingRoomsLoaded(callingRoomState, callingRoomContext);
@@ -43,14 +41,12 @@ class VideoCallPage extends StatelessWidget {
     );
   }
 
-  Widget callingRoomsLoaded(
-      CallingRoomsLoaded roomsState, BuildContext context) {
+  Widget callingRoomsLoaded(CallingRoomsLoaded roomsState, BuildContext context) {
     return BlocBuilder<CallingStatusBloc, CallingStatusState>(
-      bloc: CallingStatusBloc.get(context)
-        ..add(LoadCallingStatus(roomsState.channelId)),
+      bloc: CallingStatusBloc.get(context)..add(LoadCallingStatus(roomsState.channelId)),
       builder: (context, callingStatusState) {
-        bool isAllUsersCanceled = callingStatusState is CallingStatusLoaded &&
-            callingStatusState.callingStatus == false;
+        bool isAllUsersCanceled =
+            callingStatusState is CallingStatusLoaded && callingStatusState.callingStatus == false;
 
         bool isThereAnyProblem = callingStatusState is CallingStatusFailed;
 
@@ -86,8 +82,7 @@ class VideoCallPage extends StatelessWidget {
       });
     });
     return const Center(
-        child: Text("Canceled...",
-            style: TextStyle(fontSize: 20, color: Colors.black87)));
+        child: Text("Canceled...", style: TextStyle(fontSize: 20, color: Colors.black87)));
   }
 
   Widget whichFailedText(CallingRoomsFailed state, BuildContext context) {
@@ -97,9 +92,8 @@ class VideoCallPage extends StatelessWidget {
       });
     });
     if (state.error == "Busy") {
-      String message = usersInfo.length > 1
-          ? "They are all busy..."
-          : '${usersInfo[0].name} is Busy...';
+      String message =
+          usersInfo.length > 1 ? "They are all busy..." : '${usersInfo[0].name} is Busy...';
       return Center(child: Text(message));
     } else {
       return const Center(child: Text("Call ended..."));
@@ -108,8 +102,7 @@ class VideoCallPage extends StatelessWidget {
 
   Widget callingLoadingPage() {
     return Center(
-      child: Text("Connecting...",
-          style: getNormalStyle(color: ColorManager.black, fontSize: 25)),
+      child: Text("Connecting...", style: getNormalStyle(color: ColorManager.black, fontSize: 25)),
     );
   }
 }

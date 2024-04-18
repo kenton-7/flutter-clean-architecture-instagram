@@ -10,13 +10,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 
 Future<String?> initializeDefaultValues() async {
-
   await Future.wait([
-   //wgc Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
-   //Firebase.initializeApp(),
-   initializeDependencies(),
-   GetStorage.init("AppLang"),
-   if(!kIsWeb)_crashlytics(),
+    //wgc Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
+    //Firebase.initializeApp(),
+    initializeDependencies(),
+    GetStorage.init("AppLang"),
+    if (!kIsWeb) _crashlytics(),
   ]);
 
   if (!kIsWeb) {
