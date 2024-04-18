@@ -76,7 +76,7 @@ class _NetworkDisplayState extends State<NetworkDisplay> {
       width: widget.width ?? double.infinity,
       height: widget.height ?? height,
       placeholderBuilder: widget.blurHash.isNotEmpty
-          ? OctoPlaceholder.circleAvatar(backgroundColor: Colors.white, text: const Text("M"))
+          ? OctoPlaceholder.circleAvatar(backgroundColor: Colors.white, text: const Text("Loading"))
           : (context) => Center(child: loadingWidget()),
     );
   }
